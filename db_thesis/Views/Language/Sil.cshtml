@@ -1,0 +1,28 @@
+﻿@model Language
+
+
+<form method="post">
+	<input asp-for="LanguageId" hidden />
+
+	<div class="border p-3 mt-5">
+		<div class="row pb-3">
+			<h2 class="text-primary">Screen of deleting language</h2>
+			<hr />
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="LanguageName" class="p-0"></label>
+			<input asp-for="LanguageName" disabled class="form-control" />
+		</div>
+
+		<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Delete language</button>
+
+		<a asp-controller="Language" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+			Back to language list
+		</a>
+
+	</div>
+
+</form>
+

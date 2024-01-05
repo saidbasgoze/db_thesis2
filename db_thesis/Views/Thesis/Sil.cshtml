@@ -1,0 +1,63 @@
+﻿@model Thesis
+
+
+<form method="post">
+	<input asp-for="ThesisNo" hidden />
+
+	<div class="border p-3 mt-5">
+		<div class="row pb-3">
+			<h2 class="text-primary">Screen of Deleting Thesis</h2>
+			<hr />
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="ThesisNo" class="p-0"></label>
+			<input asp-for="ThesisNo"  disabled class="form-control" />
+			
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="Author.Person.Name" class="p-0"></label>
+			<input asp-for="Author.Person.Name" disabled class="form-control" />
+
+		</div>
+		<div class="mb-3">
+			<label asp-for="Supervisor.Person.Name" class="p-0"></label>
+			<input asp-for="Supervisor.Person.Name" disabled class="form-control" />
+
+		</div>
+		<div class="mb-3">
+			<label asp-for="ThesisTitle" class="p-0"></label>
+			<input asp-for="ThesisTitle" disabled class="form-control" />
+			
+		</div>
+		<div class="mb-3">
+			<label asp-for="University.UniversityName" class="p-0"></label>
+			<input asp-for="University.UniversityName" disabled class="form-control" />
+			
+		</div>
+		<div class="mb-3">
+			<label asp-for="NumberOfPages" class="p-0"></label>
+			<input asp-for="NumberOfPages" disabled class="form-control" />
+			
+		</div>
+		<div class="mb-3">
+			<label asp-for="SubmissionDate" class="p-0"></label>
+			<input asp-for="SubmissionDate" disabled class="form-control" />
+			
+		</div>
+
+
+
+		<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Delete Thesis</button>
+
+		<a asp-controller="Thesis" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+			Back To Thesis List
+		</a>
+
+	</div>
+
+</form>
+

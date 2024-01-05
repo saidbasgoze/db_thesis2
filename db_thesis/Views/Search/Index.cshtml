@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Advanced Search</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .form-group:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+            .btn-primary:focus {
+                box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+            }
+
+        /* Form alanlarının genişlik ayarı */
+        .col-form-label {
+            white-space: nowrap;
+            width: 150px;
+        }
+
+        .search-button {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        /* İkinci sütundaki form alanlarının içeriği düzgün görüntülenmesi için ayar */
+        .col-md-4 .form-group {
+            display: flex;
+        }
+
+            .col-md-4 .form-group .col-sm-7 {
+                flex-grow: 1;
+            }
+
+        /* Ara butonunun metni için stil */
+        .search-button span {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-controller="Search" asp-action="Index" method="post">
+                    <div class="form-group row">
+                        <label for="ThesisNo" class="col-form-label">ThesisNo</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="thesisNo" placeholder="Enter ThesisNo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="AuthorName" class="col-form-label">Author Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="authorName" placeholder="Enter Author Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="SupervisorName" class="col-form-label fixed-width">Supervisor Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="supervisorName" placeholder="Enter Supervisor Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="UniversityName" class="col-form-label">University Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="universityName" placeholder="Enter University Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="TypeName" class="col-form-label">Type Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="typeName" placeholder="Enter Type Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="LanguageName" class="col-form-label">Thesis Title</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="thesisTitle" placeholder="Enter Thesis Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Abstract" class="col-form-label fixed-width">Abstract</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="abstract" placeholder="Enter Abstract">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="InstituteName" class="col-form-label">Institute Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="instituteName" placeholder="Enter Institute Name">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-8 text-center">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

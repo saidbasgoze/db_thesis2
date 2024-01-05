@@ -1,0 +1,51 @@
+﻿@model Supervisor
+
+
+<form method="post">
+	<input asp-for="SupervisorId" hidden />
+
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-5">
+				<div class="row pb-3">
+					<h2 class="text-primary">@(Model == null ? "Create New Supervisor" : "Update Supervisor")</h2>
+					<hr />
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="SupervisorId" class="p-0"></label>
+					<input asp-for="SupervisorId" class="form-control" />
+					<span asp-validation-for="SupervisorId" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="PersonId" class="p-0"></label>
+					<select asp-for="PersonId" asp-items="ViewBag.PersonList" class="form-select"></select>
+					
+				</div>
+
+
+				
+
+				@if (Model != null)
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Update</button>
+				}
+				else
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Create New Supervisor</button>
+				}
+
+				<a asp-controller="Supervisor" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+					Back To Supervisor List
+				</a>
+
+			</div>
+		</div>
+		
+
+	</div>
+
+
+
+</form>
+

@@ -1,0 +1,50 @@
+﻿@model Institue
+
+
+<form method="post">
+	<input asp-for="InstitueId" hidden />
+
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-5">
+				<div class="row pb-3">
+					<h2 class="text-primary">@(Model == null ? "Create new Institue" : "Update")</h2>
+					<hr />
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="InstitueName" class="p-0"></label>
+					<input asp-for="InstitueName" class="form-control" />
+					<span asp-validation-for="InstitueName" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="University.UniversityName" class="p-0"></label>
+					<select asp-for="University.UniversityName" asp-items="ViewBag.UniversityList" class="form-select"></select>
+				</div>
+
+
+				
+
+				@if (Model != null)
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Update</button>
+				}
+				else
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Create new Institue</button>
+				}
+
+				<a asp-controller="Institue" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+					Return to list of Institue
+				</a>
+
+			</div>
+		</div>
+		
+
+	</div>
+
+
+
+</form>
+

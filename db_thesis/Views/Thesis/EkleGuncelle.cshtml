@@ -1,0 +1,86 @@
+﻿@model Thesis
+
+
+<form method="post">
+	<input asp-for="ThesisId" hidden />
+
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-5">
+				<div class="row pb-3">
+					<h2 class="text-primary">@(Model == null ? "Create New Thesis" : "Update Thesis")</h2>
+					<hr>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="ThesisNo" class="p-0"></label>
+					<input asp-for="ThesisNo" class="form-control" />
+					<span asp-validation-for="ThesisNo" class="text-danger"></span>
+				</div>
+
+				
+				<div class="mb-3">
+					<label asp-for="Author.Person.Name" class="p-0"></label>
+					<select asp-for="Author.Person.Name" asp-items="ViewBag.AuthorList" class="form-select">
+						<option value="">Select Author</option>
+					</select>
+					<span asp-validation-for="Author.Person.Name" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="Supervisor.Person.Name" class="p-0"></label>
+					<select asp-for="Supervisor.Person.Name" asp-items="ViewBag.SupervisorList" class="form-select">
+						<option value="">Select Supervisor</option>
+					</select>
+					<span asp-validation-for="Supervisor.Person.Name" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="ThesisTitle" class="p-0"></label>
+					<input asp-for="ThesisTitle" class="form-control" />
+					<span asp-validation-for="ThesisTitle" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="University.UniversityName" class="p-0"></label>
+					<select asp-for="University.UniversityName" asp-items="ViewBag.UniversityList" class="form-control">
+						<option value="">Select University</option>
+					</select>
+						<span asp-validation-for="University.UniversityName" class="text-danger"></span>
+					
+				</div>
+				<div class="mb-3">
+					<label asp-for="NumberOfPages" class="p-0"></label>
+					<input asp-for="NumberOfPages" class="form-control" />
+					<span asp-validation-for="NumberOfPages" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="SubmissionDate" class="p-0"></label>
+					<input asp-for="SubmissionDate" class="form-control" />
+					<span asp-validation-for="SubmissionDate" class="text-danger"></span>
+				</div>
+				
+				
+
+				
+
+				@if (Model != null)
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Update</button>
+				}
+				else
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Create New Thesis</button>
+				}
+
+				<a asp-controller="Thesis" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+					Back To Thesis List
+				</a>
+
+			</div>
+		</div>
+		
+
+	</div>
+
+
+
+</form>
+

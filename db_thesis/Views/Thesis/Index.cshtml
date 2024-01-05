@@ -1,0 +1,103 @@
+﻿@model List<Thesis>
+@if (TempData["basarili"] != null)
+{
+	<h2 style="color:red">@TempData["basarili"]</h2>
+}
+@if (TempData["basarisiz"] != null)
+{
+	<h2 style="color:red">@TempData["basarisiz"]</h2>
+}
+
+<div class="container">
+
+	<div class="row pt-3 row pb-5">
+		<div>
+			<h1>Theses</h1>
+		</div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>
+					No
+				</th>
+				<th>
+					ThesisNo
+				</th>
+				<th>
+					Author
+				</th>
+				<th>
+					Supervisor
+				</th>
+				<th>
+					Title
+				</th>
+				<th>
+					TypeName
+				</th>
+				
+				<th>
+					University
+				</th>
+				<th>
+					Topic
+				</th>
+				<th>
+					SubmissionDate
+				</th>
+				<th>
+				</th>
+				<th>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			@foreach (var (thesis, index) in Model.Select((value, i) => (value, i)))
+			{
+				<tr>
+
+					<td>@(index + 1)</td>
+					<td>
+						<a style="color: #ff0000;" asp-controller="Thesis" asp-action="Details" asp-route-id="@thesis.ThesisId">
+							@thesis.ThesisNo
+						</a>
+					</td>
+					<td>@(thesis.Author != null && thesis.Author.Person != null ? thesis.Author.Person.Name : "")</td>
+					<td>@(thesis.Supervisor != null && thesis.Supervisor.Person != null ? thesis.Supervisor.Person.Name : "")</td>
+					<td class=text-truncate style="max-width:100px">@thesis.ThesisTitle</td>
+					<td>@(thesis?.ThesisType?.TypeName ?? "")</td>
+					<td>@thesis.University.UniversityName</td>
+					<td class=text-truncate style="max-width:100px">@thesis.ThesisTopic</td>
+					<td>@thesis.SubmissionDate</td>
+					
+
+					<td>
+						<a asp-controller="Thesis" asp-action="EkleGuncelle" asp-route-id="@thesis.ThesisId" class="btn btn-success" style="width:150px">
+							Update
+						</a>
+
+					</td>
+					<td>
+						<a asp-controller="Thesis" asp-action="Sil" asp-route-id="@thesis.ThesisId" class="btn btn-danger" style="width:150px">
+							Delete
+						</a>
+					</td>
+				</tr>
+
+				
+			}
+		</tbody>
+
+	</table>
+
+	<div class="row pt-3 pb-2">
+		<div>
+			<a asp-controller="Thesis" asp-action="EkleGuncelle" class="btn btn-lg btn-primary" type="button">
+				Create New Thesis
+			</a>
+		</div>
+	</div>
+					
+</div>

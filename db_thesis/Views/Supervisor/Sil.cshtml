@@ -1,0 +1,29 @@
+﻿@model Supervisor
+
+
+<form method="post">
+	<input asp-for="SupervisorId" hidden />
+
+	<div class="border p-3 mt-5">
+		<div class="row pb-3">
+			<h2 class="text-primary">Screen of Deleting Supervisor</h2>
+			</hr>
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="Person.Name" class="p-0"></label>
+			<select asp-for="Person.Name" asp-items="ViewBag.PersonList"  class="form-select"></select>
+
+		</div>
+
+		<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Delete Supervisor</button>
+
+		<a asp-controller="Supervisor" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+			Back To Supervisor List
+		</a>
+
+	</div>
+
+</form>
+

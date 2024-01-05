@@ -1,0 +1,36 @@
+﻿@model Institue
+
+
+<form method="post">
+	<input asp-for="InstitueId" hidden />
+
+
+	<div class="border p-3 mt-5">
+		<div class="row pb-3">
+			<h2 class="text-primary">Screen of deleting Institue</h2>
+			<hr />
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="InstitueName" class="p-0"></label>
+			<input asp-for="InstitueName" disabled class="form-control" />
+			
+		</div>
+		<div class="mb-3">
+			<label asp-for="University.UniversityName" class="p-0"></label>
+			<input asp-for="University.UniversityName" disabled class="form-select"/>
+			
+		</div>
+
+		<button type="submit" class="btn btn-lg btn-primary" style="width:250px">Delete Institue</button>
+
+		<a asp-controller="Institue" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+			Return to list of Institue
+		</a>
+		
+
+	</div>
+
+</form>
+

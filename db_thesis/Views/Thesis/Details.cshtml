@@ -1,0 +1,70 @@
+﻿@model Thesis
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tez Detay Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        dt, dd {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tez Detay Sayfası</h1>
+
+        <dl class="row">
+            <dt class="col-sm-4">Tez No</dt>
+            <dd class="col-sm-8">@Model.ThesisNo</dd>
+
+            <dt class="col-sm-4">Yazar</dt>
+            <dd class="col-sm-8">@((Model.Author != null && Model.Author.Person != null) ? Model.Author.Person.Name : "")</dd>
+
+            <dt class="col-sm-4">Danışman</dt>
+            <dd class="col-sm-8">@((Model.Supervisor != null && Model.Supervisor.Person != null) ? Model.Supervisor.Person.Name : "")</dd>
+
+            <dt class="col-sm-4">Başlık</dt>
+            <dd class="col-sm-8">@Model.ThesisTitle</dd>
+
+            <dt class="col-sm-4">Özet</dt>
+            <dd class="col-sm-8">@Model.ThesisAbstract</dd>
+
+            <dt class="col-sm-4">Tez Türü</dt>
+            <dd class="col-sm-8">@Model.ThesisType.TypeName</dd>
+
+            <dt class="col-sm-4">Language</dt>
+            <dd class="col-sm-8">@Model.Language.LanguageName</dd>
+
+            <dt class="col-sm-4">Language</dt>
+            <dd class="col-sm-8">@Model.ThesisTopic</dd>
+
+            <dt class="col-sm-4">Sayfa Sayısı</dt>
+            <dd class="col-sm-8">@Model.NumberOfPages</dd>
+
+            <dt class="col-sm-4">Teslim Tarihi</dt>
+            <dd class="col-sm-8">@Model.SubmissionDate</dd>
+        </dl>
+
+        <a asp-controller="Thesis" asp-action="Index" class="btn btn-primary">Back To Thesis List</a>
+    </div>
+</body>
+</html>
